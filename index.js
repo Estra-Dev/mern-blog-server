@@ -27,6 +27,6 @@ app.get("/profile", (req, res) => {
   }
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.MONGOCONNECT || PORT, () => {
   console.log(`server automatically started on port ${PORT}`)
 })
