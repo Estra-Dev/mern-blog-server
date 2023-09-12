@@ -4,7 +4,7 @@ import cors from "cors"
 import route from "./routes/blog.js";
 import cookieParser from "cookie-parser"
 import jwt from "jsonwebtoken"
-import dotenv from "dotenv/config()"
+import "dotenv/config"
 
 const app = express()
 
@@ -32,6 +32,6 @@ app.get("/", (req, res) => {
   res.send("Welcome onboard")
 })
 
-app.listen(process.env.PORT || PORT, () => {
-  console.log(`server automatically started on port ${PORT}`)
+app.listen(process.env.PORT||PORT, () => {
+  console.log(`server automatically started on port ${process.env.PORT}`)
 })
