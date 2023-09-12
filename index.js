@@ -4,12 +4,13 @@ import cors from "cors"
 import route from "./routes/blog.js";
 import cookieParser from "cookie-parser"
 import jwt from "jsonwebtoken"
+import dotenv from "dotenv/config()"
 
 const app = express()
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-app.use(cors({credentials: true, origin: ["http://localhost:5173", "https://mern-blog-app-gwcx.onrender.com"]}))
+app.use(cors({credentials: true, origin: ["https://mern-blog-app-gwcx.onrender.com"]}))
 app.use("/", route)
 app.use(cookieParser())
 
