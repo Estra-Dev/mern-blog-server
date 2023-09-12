@@ -32,6 +32,6 @@ app.get("/", (req, res) => {
   res.send("Welcome onboard")
 })
 
-app.listen(process.env.PORT||PORT, () => {
+app.listen(process.env.PORTS||PORT, () => {
   console.log(`server automatically started on port ${process.env.PORT}`)
 })
