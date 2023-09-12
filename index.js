@@ -9,7 +9,7 @@ const app = express()
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-app.use(cors({credentials: true, origin: ["http://localhost:5173", ""]}))
+app.use(cors({credentials: true, origin: ["http://localhost:5173", "https://mern-blog-app-gwcx.onrender.com"]}))
 app.use("/", route)
 app.use(cookieParser())
 
@@ -25,6 +25,10 @@ app.get("/profile", (req, res) => {
   } catch (error) {
     throw error
   }
+})
+
+app.get("/", (req, res) => {
+  res.send("Welcome onboard")
 })
 
 app.listen(PORT, () => {
