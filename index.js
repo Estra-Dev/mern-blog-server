@@ -12,7 +12,7 @@ const app = express()
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-app.use(cors({credentials: true, origin: ["http://localhost:5173", "mern-blog-app.onrender.com"]}))
+app.use(cors({credentials: true, origin: ["http://localhost:5173", "https://mern-blog-app.onrender.com"]}))
 app.use("/", route)
 app.use(cookieParser())
 
