@@ -30,21 +30,21 @@ if (process.env.NODE_ENV === "production") {
   })
 }else {
 
-  app.get("/profile", (req, res) => {
-    const {token} = req.cookies
-    try {
-      const info = jwt.verify(token, secret)
-      res.json(info)
-    } catch (error) {
-      throw error
-    }
-  })
   
   app.get("/", (req, res) => {
     res.send("Welcome onboard")
   })
 }
 
+app.get("/profile", (req, res) => {
+  const {token} = req.cookies
+  try {
+    const info = jwt.verify(token, secret)
+    res.json(info)
+  } catch (error) {
+    throw error
+  }
+})
 
 
 app.listen(PORT, () => {
