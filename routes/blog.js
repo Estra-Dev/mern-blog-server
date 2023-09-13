@@ -4,7 +4,7 @@ const app = express()
 
 import { getPost, createPost, getPosts, deletePost, updatePost, getRegister, getLogin, getLogout} from "../routeController/blog.js"
 
-route.get("https://mern-blog-app-api-kkqn.onrender.com/posts", getPosts)
+route.get("/posts", getPosts)
 route.post("/post", createPost)
 route.get("/post/:id", getPost)
 route.delete("/post/:id", deletePost)

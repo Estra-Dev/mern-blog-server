@@ -6,7 +6,9 @@ import jwt from "jsonwebtoken"
 
 
 
-mongoose.connect(process.env.MONGOCONNECT)
+mongoose.connect(process.env.MONGOCONNECT).then(response => {
+  console.log("MongoDB is connected")
+}).catch(err => console.log("cannot connect", err))
 
 //const salt = bcrypt.genSaltSync(10);
 const secret = "fjosirvasefrAWpvpoerwieurjerirenbivpbvouyergfoerihn;sdvbuyr'we[q"
@@ -29,13 +31,12 @@ export const createPost = async (req, res) => {
     date: new Date().toLocaleTimeString()
   }
 
-  // try {
-  //   await Blog.insertMany([newPost])
-  //   res.send("Post added")
-  // } catch (error) {
-  //   console.log("could not add", error)
-  // }
-  console.log(req.files)
+  try {
+    await Blog.insertMany([newPost])
+    res.send("Post added")
+  } catch (error) {
+    console.log("could not add", error)
+  }
 }
 
 export const getPost = async (req, res) => {
